@@ -1,0 +1,51 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">      
+        
+        <!--Interceptores-->
+        <interceptors>
+            <interceptor name="sesionValida" class="interceptor.InterceptorAcceso" />
+            
+            <interceptor-stack name="defaultTimerStack">
+                <interceptor-ref name="sesionValida"/>
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="defaultTimerStack" />
+        
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
+   
+        <action name="login" class="acciones.LoginAction" >
+            <result name="input">/login.jsp</result>
+            <result name="success">/index.jsp</result>            
+            <result name="error">/login.jsp</result>
+        </action>  
+        <action name="logout" class="acciones.LoginAction" method="logout" >
+            <result name="success">/index.jsp</result>            
+        </action>  
+        <action name="dashboard" class="acciones.DashAction">
+            <result name="success">/dashboard.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="admin" class="acciones.AdminAction">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="addJob" class="acciones.AdminAction" method="addJob">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="addUser" class="acciones.AdminAction" method="addUser">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
+        
+
+    </package>
+</struts>
