@@ -8,26 +8,24 @@
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="header clearfix">                    
+<div class="header clearfix menu">                    
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <div class="container-fluid" style="padding-bottom: 15px">
+            <div class="navbar-header" style="padding-bottom: 15px">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="padding-bottom: 17px">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">MechSolutions</a>
+                <a class="navbar-brand" href="#"><img src="images/logoMS.png" style="width: 95px"  alt="logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation" class="btn-link"><a href="index.jsp">Inicio</a></li>
-                    <li role="presentation" class="btn-link"><a href="login.jsp"><i class="fa fa-user-o" aria-hidden="true"></i>Entrar</a></li>
-                    <li role="presentation" class="btn-link"><a href="contacto.jsp">Contacto</a></li>
+                <ul class="nav navbar-nav navbar-right" style="padding-top: 12px">
+                    <li role="presentation" class="btn-link"><a href="index.jsp"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+                    <li role="presentation" class="btn-link"><a href="login.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Entrar</a></li>
+                    <li role="presentation" class="btn-link"><a href="contacto.jsp"><i class="fa fa-phone" aria-hidden="true"></i>Contacto</a></li>
                 </ul>
             </div>
         </div>
-
     </nav>
-
 </div>
