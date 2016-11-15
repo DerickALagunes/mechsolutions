@@ -1,0 +1,68 @@
+DROP DATABASE mech;
+
+CREATE DATABASE mech CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE mech;
+
+
+
+-- Personas
+
+CREATE TABLE persona(
+id int PRIMARY KEY AUTO_INCREMENT,
+nombre Varchar(50),
+apellidos Varchar(60),
+mail Varchar(99) unique,
+telefono Varchar(20),
+isCliente bool,
+direccion Varchar(200),
+password varchar(50)
+);
+
+
+-- Trabajo
+
+CREATE TABLE trabajo(
+id int PRIMARY KEY AUTO_INCREMENT,
+fecha varchar(50),
+fechaEntrega varchar(50),
+descripcion varchar(10000),
+pieza varchar(100),
+estado bool,
+cliente int,
+FOREIGN KEY (cliente) REFERENCES persona(id) ON DELETE CASCADE
+);
+
+-- FAQ's
+
+CREATE TABLE faq(
+id int PRIMARY KEY AUTO_INCREMENT,
+tema varchar(100),
+respuesta varchar(10000)
+);
+
+
+-- Pub
+
+CREATE TABLE pub(
+id int PRIMARY KEY AUTO_INCREMENT,
+header varchar(100),
+texto varchar(1000),
+boton varchar(50),
+linkBoton varchar(300),
+imagen varchar(300)
+);
+
+
+
+INSERT INTO pub (header, texto, boton, linkBoton, imagen) VALUES
+('Bienvenido a MechSolutions!','Revisa nuestros servicios:','Ver','#servicios','/images/servicios.jpg'),
+('Registrate!','Adquiere beneficios al registrarte con nosotros','Ver mas','#beneficios','/images/beneficios.jpg'),
+('Ver estado de trabajos','Si ya eres cliente revisa el estado de tu equipo en la pagina','Iniciar sesion','login.jsp','/images/login.jpg'),
+('Tienes problemas con tu equipo?','Revisa nuestra seccion de posibles causas a varias fallas comunes','Ver','FAQ.jsp','/images/FAQ.jpg');
+
+
+Insert into persona (nombre,apellidos,mail,telefono,isCliente,direccion,password) values
+('axel','lagunes ramirez','axel_lagunes@outlook.com','1907524',true,'dfadsdasasd','tuchito1');
+
+
+
