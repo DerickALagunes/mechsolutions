@@ -59,7 +59,7 @@
                             <b>Email:</b>
                         </td>
                         <td>
-                            <b>axel_lagunes@outlook.com</b>
+                            <b>mech_solutions@outlook.com</b>
                         </td>
                     </tr>
                 </h5>
