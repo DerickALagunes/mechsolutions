@@ -11,6 +11,7 @@
 <body>
     <div class="container-fluid">
         <s:if test="%{#session.user.mail=='axel_lagunes@outlook.com'}">
+            <!--tuchito1-->
             <!-- admin area -->            
             <jsp:include page="plantilla/menuUsuario.jsp" />
 
