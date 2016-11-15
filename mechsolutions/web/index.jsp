@@ -28,7 +28,7 @@
             <div class="col-lg-12 well" id="servicios">
 
                 <h4 class="page-header ">Soluciones</h4>
-                <img class="pull-right" style="float: right; height: 200px" src="<%=context%>/images/bg2.jpg" alt="Primera">
+                <img class="pull-right" style="float: right; height: 200px" src="<%=context%>/images/serv.jpg" alt="Primera">
                 <p>MechSolutions cuenta con estos servicios:</p> 
                 <ul>
                     <li>Mantenimiento preventivo</li>
@@ -49,7 +49,7 @@
 
             <div class="col-lg-12 well" id="beneficios">
                 <h4 class="page-header">Beneficios de registrarse con nosotros</h4>
-                <img class="pull-right" style="float: right; height: 150px" src="<%=context%>/images/bg2.jpg" alt="Primera">
+                <img class="pull-right" style="float: right; height: 150px" src="<%=context%>/images/ben.png" alt="Primera">
                 <p>Al registrarse con nosotros obtiendras acceso a varias herramientas de MechSolutions:</p>
                 <ul>
                     <li>Servidor de series y peliculas Plex</li>
