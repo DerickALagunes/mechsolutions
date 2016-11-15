@@ -10,8 +10,11 @@
     <body>
         <div class="container">
             <div class="row">
-                <h1 class="header">404</h4>
-                    <h4>Error, pagina no encontrada.</h4>
+                <h1 class="header"><i class="icon-warning-sign"></i> Error <i class="icon-warning-sign"></i></h1>
+                    <img src="images/wow.jpg" alt=""/>
+                    <h4>Ha ocurridó un error, la pagina que buscabas no se encuentra</h4>
+                    <br/>
+                    <h4><a href="index.jsp">Regresar al inicio.</a></h4>
             </div>
         </div>
         <jsp:include page="plantilla/foot.jsp" /> 
