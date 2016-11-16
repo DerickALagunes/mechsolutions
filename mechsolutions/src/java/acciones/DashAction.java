@@ -30,7 +30,6 @@ public class DashAction extends ActionSupport implements SessionAware {
     public String execute() {
 
         persona = (PersonaBean) session.get("user");
-        System.out.println(persona.getId());
         trabajos = dao.Consult(persona);
         
         return "success";

@@ -10,8 +10,6 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -19,42 +17,31 @@ import java.util.List;
  */
 public class ServerCheck {
 
-    /**
-     * Checa con una lista de puertos si estan disponibles los servicios en una
-     * direccion especificada dentro del metodo.
-     * @param servers
-     * @return List
-     */
-    public Object[] checkServers(List<String> servers) {
-        List<String> lista = new ArrayList();
-        for (String port : servers) {
-            SocketAddress sockaddr
-                    = new InetSocketAddress("mechsolutions.sytes.net", Integer.parseInt(port));
-            // Create your socket
-            Socket socket = new Socket();
-            boolean online = true;
-                       
-            // Connect with 5 s timeout
-            try {
-                socket.connect(sockaddr, 3000);
-            } catch (SocketTimeoutException stex) {
+    public String checkServers(String port) {
+        SocketAddress sockaddr
+                = new InetSocketAddress("mechsolutions.sytes.net", Integer.parseInt(port));
+        // Create your socket
+        Socket socket = new Socket();
+        boolean online = true;
+        // Connect with 5 s timeout
+        try {
+            socket.connect(sockaddr, 3000);
+        } catch (SocketTimeoutException stex) {
                 // treating timeout errors separately from other io exceptions
-                // may make sense
-                online = false;
-            } catch (IOException iOException) {
-                online = false;
-            } finally {
+            // may make sense
+            online = false;
+        } catch (IOException iOException) {
+            online = false;
+        } finally {
                 // As the close() operation can also throw an IOException
-                // it must caught here
-                try {
-                    socket.close();
-                } catch (IOException ex) {
-                    // feel free to do something moderately useful here, eg log the event
-                }
-
+            // it must caught here
+            try {
+                socket.close();
+            } catch (IOException ex) {
+                // feel free to do something moderately useful here, eg log the event
             }
-            lista.add(online + "");
         }
-        return lista.toArray();
+        return online + "";
     }
+
 }

@@ -45,7 +45,10 @@
             <result name="success">/administracion.jsp</result>  
             <result name="error">/error.jsp</result>
         </action>
-        
+        <action name="statusServer" class="acciones.Server">
+            <result name="success">/serverDashboard.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
 
     </package>
 </struts>
