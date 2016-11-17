@@ -9,12 +9,7 @@
 <jsp:include page="plantilla/header.jsp" /> 
 <body>
     <div class="container">
-        <s:if test="%{#session.size==0}">
-            <jsp:include page="plantilla/menu.jsp" />
-        </s:if>
-        <s:else>
-            <jsp:include page="plantilla/menuUsuario.jsp" />
-        </s:else>
+        <jsp:include page="plantilla/menuFunction.jsp" />
 
         <div class="jumbotron" style="text-align: justify">
 
