@@ -10,13 +10,12 @@
 <html>
     <jsp:include page="plantilla/header.jsp" /> 
     <body>
-        <div class="container">
-            <s:if test="%{#session.size==0}">
-                <jsp:include page="plantilla/menu.jsp" />
-            </s:if>
-            <s:else>
-                <jsp:include page="plantilla/menuUsuario.jsp" />
-            </s:else>
+        <div class="container well"  style="text-align: justify">
+            <jsp:include page="plantilla/menuFunction.jsp" />
+            <h1 class="header">Preguntas frecuentes<i class="fa fa-question" aria-hidden="true"></i></h1>
+            <br/>
+            <h5>Si tienes problemas con tu equipo checa esta sección para intentar resolverlos, recuerda que siempre puedes contactarnos y acudir con nosotros si no encuentras solución.</h5>
+            <br/>
             <div class="jumbotron" style="text-align: justify">
                 <jsp:include page="plantilla/preguntasFrecuentes.jsp" />
             </div>
