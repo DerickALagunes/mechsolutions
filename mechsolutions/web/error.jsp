@@ -3,9 +3,7 @@
     Created on : 18/10/2016, 03:05:26 PM
     Author     : derick
 --%>
-<%
-    String context = request.getRequestURI();
-%>
+<% String context = request.getContextPath();%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
