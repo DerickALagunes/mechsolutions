@@ -35,7 +35,7 @@
                             <img src="<%=context%>/images/${serverName}.png" width="100px" height="100px" 
                                  class="img-circle col-sm-6 col-xs-6" alt="${serverName}">
                             <br/><br/>
-                            <h4 class="col-sm-6 col-xs-6">Plex </h4>
+                            <h4 class="col-sm-6 col-xs-6"><s:property value="serverName"/></h4>
                         </div>
                     </a>
                 </s:if>

@@ -10,15 +10,8 @@
 <jsp:include page="plantilla/header.jsp" /> 
 <body>
     <div class="container">
-        <s:if test="%{#session.size==0}">
-            <jsp:include page="plantilla/menu.jsp" />
-        </s:if>
-        <s:elseif test="%{#session.user.mail=='axel_lagunes@outlook.com'}">
-            <jsp:include page="plantilla/menuAdmin.jsp" />
-        </s:elseif>
-        <s:else>
-            <jsp:include page="plantilla/menuUsuario.jsp" />
-        </s:else>
+
+        <jsp:include page="plantilla/menuFunction.jsp" />
 
         <div class="jumbotron">
             <jsp:include page="plantilla/carrusel.jsp" /> 

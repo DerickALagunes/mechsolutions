@@ -8,11 +8,6 @@
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<style>
-    .menu .navbar-brand>img {
-        padding: 7px 15px;
-    }
-</style>
 <div class="header clearfix menu">                    
     <nav class="navbar navbar-default">
         <div class="container-fluid" style="padding-bottom: 15px">

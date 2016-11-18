@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <s:if test="%{#session.user.mail=='axel_lagunes@outlook.com'}">
             <!-- admin area -->            
-            <jsp:include page="plantilla/menuUsuario.jsp" />
+            <jsp:include page="plantilla/menuAdmin.jsp" />
 
             <div class="row">
 

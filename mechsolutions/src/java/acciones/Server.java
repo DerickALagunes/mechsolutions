@@ -29,13 +29,13 @@ public class Server extends ActionSupport implements SessionAware {
     private final String iMinecraft = 
             "<h5>1.Abre tu launcher de minecraft<br/><br/>2.Selecciona jugar en la versión 1.7.4 del juego<br/><br/>3.Incia el juego y ve a multijugador<br/><br/>4.En add server ingresa: <b>mechsolutions.sytes.net:25565</b><br/><br/>5.Dale agregar y cuando aparesca en la lista de servidores selecciona y da doble click.</h5><br/>";
     private final String iCod = 
-            "<h5></h5>";
+            "<h5>1.Abre el juego de Call of Duty 4 (Cod4) en modo en linea<br/><br/>  </h5>";
     private final String iDraw = 
-            "<h5></h5>";
+            "<h5>1.Entra al siguiente link y comienza a usarlo <a href='https://www.draw.io/'>Draw.io</a>.</h5>";
     private final String iLufi = 
-            "<h5></h5>";
+            "<h5>1.Entra al siguiente link <a href='https://demo.lufi.io'>Lufi</a><br/><br/>2.Sube tus archivos y selecciona el tiempo que quieres que permanescan en el servidor(despues de ese tiempo seran borrados)<br/><br/>3.se generará un link, usa ese link para descargar tu archivo, puedes compartir tu link con otras personas pero ten cuidado si tus archivos son personales.</h5>";
     private final String iGit = 
-            "<h5></h5>";
+            "<h5>1.Entra al siguiente link <a href='https://gitlab.com/'>Gitlab</a><br/><br/>2.Tendras que hacer una cuenta y confirmar tu correo electronico<br/><br/>3.Una vez confirmada puedes utilizar las funciones de usuario de gitlab y crear repositorios para tus proyectos.</h5>";
 
     
     private String estado;
