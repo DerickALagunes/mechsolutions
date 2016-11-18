@@ -222,8 +222,7 @@
         </s:else>
     </div>
     <script>
-        function mostrarModal(a) {
-            alert($("#tbIdTrabajo"+a)[0].innerHTML);
+        function mostrarModal(a) {            
             $("#idTrabajoMod").val($("#tbIdTrabajo"+a)[0].innerHTML);
             $("#fechaEntregaM").val($("#tbFechaEntrega" + a)[0].innerHTML);
             $("#descripcionM").val($("#tbDescripcion" + a)[0].innerHTML);
@@ -235,16 +234,14 @@
         }
         function cambioUsuario(id){
             
-            $('select[id=seleccionUsuarioId]').change(function(){
-                console.log("hola "+$('select[id=seleccionUsuarioId]').val());
+            $('select[id=seleccionUsuarioId]').change(function(){                
                $("#idUsuarioMod").val($('select[id=seleccionUsuarioId]').val()); 
             });
             
         }
         
         
-        function cambiar(s) {
-            console.log("select: " + $("#selectUsuarios").get("data"));
+        function cambiar(s) {            
             if ($('#' + s).attr('class') === 'fa fa-sort-desc') {
                 $('#' + s).removeClass('fa-sort-desc');
                 $('#' + s).addClass('fa-sort-asc');
