@@ -41,6 +41,10 @@
             <result name="success">/administracion.jsp</result>  
             <result name="error">/error.jsp</result>
         </action>
+        <action name="modJob" class="acciones.AdminAction" method="modjob">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
         <action name="addUser" class="acciones.AdminAction" method="addUser">
             <result name="success">/administracion.jsp</result>  
             <result name="error">/error.jsp</result>
