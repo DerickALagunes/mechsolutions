@@ -65,4 +65,19 @@ Insert into persona (nombre,apellidos,mail,telefono,isCliente,direccion,password
 ('axel','lagunes ramirez','axel_lagunes@outlook.com','1907524',true,'dfadsdasasd','tuchito1');
 
 
-
+Insert into faq(tema,respuesta) VALUES
+('La computadora no enciende','revisa: si esta conectada, si tiene pila(en caso de laptop). Intenta buscar signos de corto circuito como olor a quemado o manchas negras dentro de la placa de la computadora.'),
+('No hay conexion a internet','revisa: si el cable o adaptador inalambrico este conectado, si el modem esta encendido y el estado de tu proveedor de internet.'),
+('Computadora lenta','Desinstala programas que no necesites, aumenta la memoria RAM de la computadora.'),
+('No se dectecta Memoria USB','Es posible que la memoria tenga falso contacto, intenta moverla hacia los lados y hacia atras sin sacarla lentamente.'),
+('No hay imagen en el monitor','revisa: si esta bien conectado el cable de video VGA,HDMI. Si hay imagen antes de entrar al sistema operativo significa que windows no dectecta tu monitor y debes instalar drivers de video.'),
+('No puedo entrar a ciertas paginas de internet','Dependiendo del proveedor de internet, no todas las paginas estan registradas en sus servidores de nombres (DNS) configura tu red para que use el DNS de google "8.8.8.8". Tambien es posible que la red tenga filtros que no permiten acceder a ciertas paginas.'),
+('Sospecha de virus en computadora','Analiza todo el disco duro con un antivirus.'),
+('No hay sonido','Revisa: si las bocinas o los audifonos estan bien conectados al equipo. Es posible que un error provocara que los drivers de sonido fallaran, intenta actualizarlos'),
+('No puedo abrir un programa','Revisa: si el programa da un mensaje de error, los mensajes de error al abrir un programa normalmente explican la razon de porque fallo (falta algun otro programa secundario, falla de instalacion, etc) esto te dara una pista para poder resolver el problema. Puede que tu computadora no cumpla con los requisitos minimos del sistema.'),
+('No se pueden ver videos','Revisa: si tienes instalado flash player el cual permite ver videos y animaciones de tipo flash que ya no son tan comunes. Revisa tu conexion a internet.'),
+('La computadora se reinicia sin avisar','Es posible que tenga algun virus que reinicie la computadora cada vez que se realize cierta accion. Tambien puede ser una falla en la fuente de poder o en el suministro electrico'),
+('La computadora se apaga sin avisar','Es posible que halla un error en el disco duro que haga que el sistema falle (podria aparecer una pantalla azul). Es posible que la computadora se este calentado demaciado por lo cual se apaga automticamente para evitar quemar el procesador.'),
+('No puedo abrir cierto archivo','Cada archivo se abre con algun programa, puede ser que no tengas el programa necesario para abrirlo.'),
+('La computadora no reconoce un hardware','Instala los drivers del componente nuevo.'),
+('La computadora hace ruidos extraños','Se trata de una falla en el disco duro, deberias respaldar tu informacion lo mas rapido que puedas.');
