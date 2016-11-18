@@ -80,4 +80,4 @@ Insert into faq(tema,respuesta) VALUES
 ('La computadora se apaga sin avisar','Es posible que halla un error en el disco duro que haga que el sistema falle (podria aparecer una pantalla azul). Es posible que la computadora se este calentado demaciado por lo cual se apaga automticamente para evitar quemar el procesador.'),
 ('No puedo abrir cierto archivo','Cada archivo se abre con algun programa, puede ser que no tengas el programa necesario para abrirlo.'),
 ('La computadora no reconoce un hardware','Instala los drivers del componente nuevo.'),
-('La computadora hace ruidos extraÃ±os','Se trata de una falla en el disco duro, deberias respaldar tu informacion lo mas rapido que puedas.');
+('La computadora hace ruidos extraños','Se trata de una falla en el disco duro, deberias respaldar tu informacion lo mas rapido que puedas.');
