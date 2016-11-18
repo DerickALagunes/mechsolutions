@@ -47,7 +47,6 @@ public class Server extends ActionSupport implements SessionAware {
 
     @Override
     public String execute() {
-        System.out.println(serverName);
         switch (serverName) {
             case "plex":
                 setEstado(check.checkServers("32400"));

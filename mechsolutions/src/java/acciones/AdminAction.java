@@ -18,11 +18,12 @@ import org.apache.struts2.interceptor.SessionAware;
  *
  * @author derick
  */
-public class AdminAction extends ActionSupport implements SessionAware{
-    
-    private PersonaBean persona;   
+public class AdminAction extends ActionSupport implements SessionAware {
+
+    private PersonaBean persona;
     private TrabajoBean trabajo;
     private List<PersonaBean> lista;
+    private List<TrabajoBean> listaTra;
     private final PersonaDao daoP = new PersonaDao();
     private final TrabajoDao daoT = new TrabajoDao();
     private Map session;
@@ -30,40 +31,40 @@ public class AdminAction extends ActionSupport implements SessionAware{
     @Override
     public String execute() {
         lista = getLista();
+        listaTra = getListaTra();
         return SUCCESS;
     }
-    
-    public String addJob(){
+
+    public String addJob() {
         trabajo = new TrabajoBean();
-        
+
         trabajo.setFechaEntrega(fechaEntrega);
         trabajo.setDescripcion(descripcion);
         trabajo.setPieza(pieza);
         trabajo.setCliente(cliente);
-        
+
         if (cliente > 0) {
             daoT.registrarTrabajo(trabajo);
         }
-        
-        fechaEntrega="";
-        descripcion="";
-        pieza="";
-        cliente=0;
-        
-        
+
+        fechaEntrega = "";
+        descripcion = "";
+        pieza = "";
+        cliente = 0;
+
         lista = getLista();
         return SUCCESS;
     }
-    
-    public String addUser(){
-        
+
+    public String addUser() {
+
         persona = new PersonaBean();
-        
+
         System.out.println(mail);
         System.out.println(daoP.exists(mail));
-        
+
         if (!mail.isEmpty() && !daoP.exists(mail)) {
-            
+
             //registrar
             persona.setNombre(nombre);
             persona.setApellidos(apellidos);
@@ -72,13 +73,16 @@ public class AdminAction extends ActionSupport implements SessionAware{
             persona.setIsCliente(true);
             persona.setDireccion(direccion);
             persona.setPassword(telefono);
-            
+
             daoP.registrarPersona(persona);
         }
-            
-        nombre=""; apellidos=""; mail=""; telefono=""; direccion=""; 
-        
-        
+
+        nombre = "";
+        apellidos = "";
+        mail = "";
+        telefono = "";
+        direccion = "";
+
         lista = getLista();
         return SUCCESS;
     }
@@ -91,7 +95,7 @@ public class AdminAction extends ActionSupport implements SessionAware{
         this.persona = persona;
     }
 
-   @Override
+    @Override
     public void setSession(Map<String, Object> map) {
         this.session = map;
     }
@@ -107,14 +111,16 @@ public class AdminAction extends ActionSupport implements SessionAware{
     public void setLista(List<PersonaBean> lista) {
         this.lista = lista;
     }
-    
+
     private int id;
+    private String idString;
     private String fecha;
     private String fechaEntrega;
     private String descripcion;
     private String pieza;
     private boolean estado;
     private int cliente;
+    private String clienteString;
     private String nombre;
     private String apellidos;
     private String mail;
@@ -131,6 +137,26 @@ public class AdminAction extends ActionSupport implements SessionAware{
         this.trabajo = trabajo;
     }
 
+    public String getIdString() {
+        return idString;
+    }
+
+    public void setIdString(String idString) {
+        this.idString = idString;
+    }
+
+    
+    
+    public String getClienteString() {
+        return clienteString;
+    }
+
+    public void setClienteString(String clienteString) {
+        this.clienteString = clienteString;
+    }
+    
+    
+    
     public int getId() {
         return id;
     }
@@ -242,9 +268,34 @@ public class AdminAction extends ActionSupport implements SessionAware{
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
-    
-    
-    
+
+    public List<TrabajoBean> getListaTra() {
+        return listaTra = daoT.ConsultTrabajos();
+    }
+
+    public void setListaTra(List<TrabajoBean> listaTra) {
+        this.listaTra = listaTra;
+    }
+
+    public String modjob() {
+        System.out.println("cliente "+Integer.parseInt(idString));
+        id = Integer.parseInt(idString);
+        cliente = Integer.parseInt(clienteString);
+        trabajo = new TrabajoBean();
+        trabajo.setId(id);
+        trabajo.setFechaEntrega(fechaEntrega);
+        trabajo.setDescripcion(descripcion);
+        trabajo.setPieza(pieza);
+        trabajo.setCliente(cliente);
+        
+        boolean booActualizacion = daoT.actualizarTrabajo(trabajo);
+         if (booActualizacion) {
+            return SUCCESS;
+        }else{
+            return ERROR;
+         }
+        
+        
+    }
+
 }
