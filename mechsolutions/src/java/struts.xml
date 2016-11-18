@@ -45,6 +45,18 @@
             <result name="success">/administracion.jsp</result>  
             <result name="error">/error.jsp</result>
         </action>
+        <action name="terTrab" class="acciones.AdminAction" method="tertrab">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="moduse" class="acciones.AdminAction" method="modUser">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="delUser" class="acciones.AdminAction" method="delUsuario">
+            <result name="success">/administracion.jsp</result>  
+            <result name="error">/error.jsp</result>
+        </action>
         <action name="addUser" class="acciones.AdminAction" method="addUser">
             <result name="success">/administracion.jsp</result>  
             <result name="error">/error.jsp</result>

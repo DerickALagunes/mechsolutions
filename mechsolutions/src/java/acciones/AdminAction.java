@@ -145,8 +145,6 @@ public class AdminAction extends ActionSupport implements SessionAware {
         this.idString = idString;
     }
 
-    
-    
     public String getClienteString() {
         return clienteString;
     }
@@ -154,9 +152,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
     public void setClienteString(String clienteString) {
         this.clienteString = clienteString;
     }
-    
-    
-    
+
     public int getId() {
         return id;
     }
@@ -278,7 +274,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
     }
 
     public String modjob() {
-        System.out.println("cliente "+Integer.parseInt(idString));
+        System.out.println("cliente " + Integer.parseInt(idString));
         id = Integer.parseInt(idString);
         cliente = Integer.parseInt(clienteString);
         trabajo = new TrabajoBean();
@@ -287,15 +283,81 @@ public class AdminAction extends ActionSupport implements SessionAware {
         trabajo.setDescripcion(descripcion);
         trabajo.setPieza(pieza);
         trabajo.setCliente(cliente);
-        
+
         boolean booActualizacion = daoT.actualizarTrabajo(trabajo);
-         if (booActualizacion) {
+        if (booActualizacion) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+
+    }
+
+    public String tertrab() {
+        System.out.println("id: " + id);
+        trabajo = new TrabajoBean();
+        trabajo.setId(id);
+        boolean booleanTerminarTrabajo = daoT.terminarTrabajo(trabajo, false);
+        if (booleanTerminarTrabajo) {
+            id = 0;
+            return SUCCESS;
+        } else {
+            id = 0;
+            return ERROR;
+        }
+    }
+
+    public String modUser() {
+
+        persona = new PersonaBean();
+
+        System.out.println(mail);
+        System.out.println(daoP.exists(mail));
+        boolean mdoficacionE = false;
+        if (!mail.isEmpty()) {
+
+            //Modificar
+            id = Integer.parseInt(idString);
+            persona.setId(id);
+            persona.setNombre(nombre);
+            persona.setApellidos(apellidos);
+            persona.setMail(mail);
+            persona.setTelefono(telefono);
+            persona.setIsCliente(true);
+            persona.setDireccion(direccion);
+            persona.setPassword(telefono);
+
+            mdoficacionE = daoP.modificarPersona(persona);
+        }
+
+        nombre = "";
+        apellidos = "";
+        mail = "";
+        telefono = "";
+        direccion = "";
+
+        listaTra = getListaTra();
+        lista = getLista();
+        if (mdoficacionE) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+    }
+
+    public String delUsuario(){
+        
+        persona = new PersonaBean();
+        persona.setId(id);
+        
+        boolean bandera  = daoP.eliminarPersona(persona);
+        if(bandera){
             return SUCCESS;
         }else{
             return ERROR;
-         }
+        }
         
         
     }
-
+    
 }

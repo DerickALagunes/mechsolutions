@@ -167,4 +167,57 @@ public class PersonaDao {
         return flag;
     }
 
+     public boolean modificarPersona(PersonaBean persona) {
+        boolean flag = false;
+        try {
+            Connection conexion = conexionMySQLServer.getConnection();
+            String Query = "UPDATE persona SET"
+                             + " nombre = ? ,apellidos = ?, mail =  ?,"
+                             + " telefono = ?,direccion = ?"
+                    + "WHERE id = ?";
+            PreparedStatement pstm = conexion.prepareStatement(Query);
+            pstm.setString(1, persona.getNombre());
+            pstm.setString(2, persona.getApellidos());
+            pstm.setString(3, persona.getMail());
+            pstm.setString(4, persona.getTelefono());
+            pstm.setString(5, persona.getDireccion());
+            pstm.setInt(6, persona.getId());
+            if (pstm.executeUpdate() == 1) {
+                flag = true;
+            }
+
+            pstm.close();
+            conexion.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaDao.class.getName()).log(Level.SEVERE, null,
+                    ex);
+        }
+
+        return flag;
+    }
+     
+     public boolean eliminarPersona(PersonaBean persona) {
+        boolean flag = false;
+        try {
+            Connection conexion = conexionMySQLServer.getConnection();
+            String Query = "DELETE FROM persona WHERE id = ? AND id <> 1;";
+            PreparedStatement pstm = conexion.prepareStatement(Query);            
+            pstm.setInt(1, persona.getId());
+            if (pstm.executeUpdate() == 1) {
+                flag = true;
+            }
+
+            pstm.close();
+            conexion.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaDao.class.getName()).log(Level.SEVERE, null,
+                    ex);
+        }
+
+        return flag;
+    }
+    
+    
 }

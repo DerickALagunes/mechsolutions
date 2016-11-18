@@ -155,6 +155,31 @@ public class TrabajoDao {
                     ex);}        
         return lista;     
     }
-       
+       //Eestado de trabajo terminado
+    public boolean terminarTrabajo(TrabajoBean trabajo,boolean estadoT) {
+        boolean status = false;        
+        try {
+            Connection conexion = conexionMySQLServer.getConnection();
+            String Query = "Update trabajo "
+                    + "set estado = ? WHERE id=?";
+            PreparedStatement pstm = conexion.prepareStatement(Query);
+
+            
+            pstm.setBoolean(1, estadoT);            
+            pstm.setInt(2, trabajo.getId());
+            
+
+            if (pstm.executeUpdate() == 1) {
+                status = true;
+            }
+
+            pstm.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
       
 }
