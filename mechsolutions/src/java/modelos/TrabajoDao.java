@@ -56,16 +56,16 @@ public class TrabajoDao {
         try {
             Connection conexion = conexionMySQLServer.getConnection();
             String Query = "Update trabajo "
-                    + "set fecha=?, fechaEntrega=?, descripcion=?,"
-                    + "pieza=?, estado=? WHERE id=?";
+                    + "set fecha=CURDATE(), fechaEntrega=?, descripcion=?,"
+                    + "pieza=?, cliente = ? WHERE id=?";
             PreparedStatement pstm = conexion.prepareStatement(Query);
 
-            pstm.setString(1, trabajo.getFecha());
-            pstm.setString(2, trabajo.getFechaEntrega());
-            pstm.setString(3, trabajo.getDescripcion());
-            pstm.setString(4, trabajo.getPieza());
-            pstm.setBoolean(5, trabajo.isEstado());
-            pstm.setInt(6, trabajo.getId());
+            
+            pstm.setString(1, trabajo.getFechaEntrega());
+            pstm.setString(2, trabajo.getDescripcion());
+            pstm.setString(3, trabajo.getPieza());
+            pstm.setInt(4, trabajo.getCliente());
+            pstm.setInt(5, trabajo.getId());
             
 
             if (pstm.executeUpdate() == 1) {
@@ -119,5 +119,42 @@ public class TrabajoDao {
                     ex);}        
         return lista;     
     }
+    
+    public ArrayList<TrabajoBean> ConsultTrabajos(){
+        ArrayList<TrabajoBean> lista = new ArrayList<>();
+        try {
+            Connection conexion = conexionMySQLServer.getConnection();
+            String Query = "SELECT trabajo.id,fecha,fechaEntrega,descripcion,"
+                    + "pieza,estado,persona.id "
+                    + "FROM trabajo join persona on "
+                    + "trabajo.cliente=persona.id";
+            PreparedStatement pstm = conexion.prepareStatement(Query);
+            ResultSet res = pstm.executeQuery();
+            
+            while (res.next()) {
+               
+                TrabajoBean bean = new TrabajoBean();
+                
+                bean.setId(res.getInt(1));
+                bean.setFecha(res.getString(2));
+                bean.setFechaEntrega(res.getString(3));
+                bean.setDescripcion(res.getString(4));
+                bean.setPieza(res.getString(5));
+                bean.setEstado(res.getBoolean(6));
+                bean.setCliente(res.getInt(7));
+                
+                lista.add(bean);
+            }
+            
+            res.close();
+            pstm.close();
+            conexion.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaDao.class.getName()).log(Level.SEVERE, null,
+                    ex);}        
+        return lista;     
+    }
+       
       
 }
