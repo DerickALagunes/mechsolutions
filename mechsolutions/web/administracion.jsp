@@ -24,35 +24,44 @@
                         <div class="well well-sm">
                             <h3  onclick="cambiar('flechita');" data-toggle="collapse" data-target="#job">Agregar Trabajo <i id="flechita" class="fa fa-sort-desc" aria-hidden="true"></i></h3>
                         </div>
-                        <div id="job" class="collapse">
+                        <div id="job" class="collapse" onmousemove="fvalidacionTab()">
                             <div class="well">
                                 <s:form name="addJob" action="addJob" id="addJob" method="POST">
                                     <div class="form-group">
                                         <label for="fechaEntrega" class="col-lg-3">Fecha de Entrega:</label>
                                         <div class="col-lg-9">
-                                            <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega">
+                                            <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega" onkeyup="fvalidacionTab()" onchange="fvalidacionTab()">
                                             <br/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="descripcion" class="col-lg-3">Descripción:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                            <input type="text" class="form-control" id="descripcion" name="descripcion" onkeyup="fvalidacionTab()" onchange="fvalidacionTab()">
                                             <br/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="pieza" class="col-lg-3">Pieza:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="pieza" name="pieza">
+                                            <input type="text" class="form-control" id="pieza" name="pieza" onkeyup="fvalidacionTab()" onmousemove="fvalidacionTab()">
                                             <br/>
                                         </div>
-                                    </div>                           
+                                    </div>    
                                     <div class="form-group">
-                                        <s:select key="Lista de usuarios" list="lista" listKey="id" listValue="nombre" name="cliente" cssclass="form-control"></s:select>
+                                        <label for="ListaUsuarios" class="col-lg-3">Lista de usuarios:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="seleccionUsuarioIdT" onclick="cambioUsuarioTab(1)">
+                                                <s:iterator value="lista" var="listaPersona">
+                                                    <option id="tra<s:property value="#listaPersona.id" />" onclick="cambioUsuarioTab(1)" value="<s:property value="#listaPersona.id" />"><s:property value="#listaPersona.nombre" /></option>
+                                                </s:iterator>
+                                            </select>  
+                                            <input class="hidden" id="idUsuarioTab" name="clienteString" value="1">                                            
+                                            <br/>
                                         </div>
+                                    </div>
                                         <div class="form-group">
-                                            <button class="btn btn-sm btn-primary" type="submit">Confirmar</button>
+                                            <button class="btn btn-sm btn-primary disabled" id="botonTab" type="submit">Confirmar</button>
                                         </div>
                                 </s:form>
                             </div>
@@ -63,46 +72,46 @@
                         <div class="well well-sm">
                             <h3 onclick="cambiar('flechita2');" data-toggle="collapse" data-target="#user">Agregar Usuario<i id="flechita2" class="fa fa-sort-desc" aria-hidden="true"></i></h3>
                         </div>
-                        <div id="user" class="collapse ">
+                        <div id="user" class="collapse " onmousemove="fvalidacion()">
                             <div class="well">
                                 <s:form name="addUser" action="addUser" id="addUser" method="POST" class="form-horizontal">
                                     <div class="form-group">
                                         <label for="imputnombre" class="col-lg-3">Name:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="nombre" name="nombre">
+                                            <input type="text" class="form-control" id="nombre" name="nombre" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>
                                     </div>                                
                                     <div class="form-group">
                                         <label for="imputapellidos:" class="col-lg-3">Surnames:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="apellidos" name="apellidos">
+                                            <input type="text" class="form-control" id="apellidos" name="apellidos" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div>
                                     <div class="form-group">                                        
                                         <label for="imputmail" class="col-lg-3" >Mail:</label>                                    
                                         <div class="col-lg-9">
-                                            <input type="email" class="form-control" id="mail" name="mail">
+                                            <input type="email" class="form-control" id="mail" name="mail" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div>
                                     <div class="form-group">
                                         <label for="telefono" class="col-lg-3">Phone:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="telefono" name="telefono">
+                                            <input type="text" class="form-control" id="telefono" name="telefono" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div>
                                     <div class="form-group">
                                         <label for="impiutdireccion" class="col-lg-3">Direccion:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="direccion" name="direccion">
+                                            <input type="text" class="form-control" id="direccion" name="direccion" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div> 
                                     <div class="form-group" >
-                                        <button class="btn btn-sm btn-primary" type="submit">Confirmar</button>
+                                        <button id="botnUsuario" class="btn btn-sm btn-primary disabled" type="submit">Confirmar</button>
                                     </div>
                                 </s:form>
                             </div>
@@ -138,12 +147,12 @@
                                                     <td id="tbFechaEntrega<s:property value="#trabajo.id" />"><s:property value="#trabajo.fechaEntrega" /></td>
                                                     <td id="tbDescripcion<s:property value="#trabajo.id" />"><s:property value="#trabajo.descripcion" /></td>
                                                     <td id="tbPieza<s:property value="#trabajo.id" />"><s:property value="#trabajo.pieza" /></td>
-                                                    <input class="hidden" id="tbIdUsuario<s:property value="#trabajo.id" />" value="<s:property value="#trabajo.cliente" />">
-                                                    <td><button class="btn btn-primary" id="ModficarT" onclick="mostrarModal(<s:property value="#trabajo.id" />)">Modificar</button></td>
-                                                    <s:url var="terminarTrabajo" action="terTrab">
-                                                        <s:param name="id"><s:property value="#trabajo.id" /></s:param>
-                                                    </s:url>
-                                                    <td><a  href="${terminarTrabajo}"><button class="btn btn-danger">Eliminar</button></a></td>
+                                            <input class="hidden" id="tbIdUsuario<s:property value="#trabajo.id" />" value="<s:property value="#trabajo.cliente" />">
+                                            <td><button class="btn btn-primary" id="ModficarT" onclick="mostrarModal(<s:property value="#trabajo.id" />)">Modificar</button></td>
+                                            <s:url var="terminarTrabajo" action="terTrab">
+                                                <s:param name="id"><s:property value="#trabajo.id" /></s:param>
+                                            </s:url>
+                                            <td><a  href="${terminarTrabajo}"><button class="btn btn-danger">Eliminar</button></a></td>
                                             </tr>
                                         </s:if>
                                     </s:iterator>
@@ -173,20 +182,20 @@
                                     </thead>
                                     <tbody>
                                         <s:iterator value="lista" var="usuarioT">
-                                                <tr>
-                                                    <td id="tbIdUsuario<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.id" /></td>
-                                                    <td id="tbNombre<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.nombre" /></td>
-                                                    <td id="tbApellidos<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.apellidos" /></td>
-                                                    <td id="tbMail<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.mail" /></td>
-                                                    <td id="tbTelefono<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.telefono" /></td>
-                                                    <td id="tbDireccion<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.direccion" /></td>                                                    
-                                                    <td><button class="btn btn-primary" id="ModficarT" onclick="mostrarModalUsuario(<s:property value="#usuarioT.id" />)">Modificar</button></td>
-                                                    <s:url var="terminarTrabajo" action="delUser">
-                                                        <s:param name="id"><s:property value="#usuarioT.id" /></s:param>
-                                                    </s:url>
-                                                    <td><a  href="${terminarTrabajo}"><button class="btn btn-danger">Eliminar</button></a></td>
+                                            <tr>
+                                                <td id="tbIdUsuario<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.id" /></td>
+                                                <td id="tbNombre<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.nombre" /></td>
+                                                <td id="tbApellidos<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.apellidos" /></td>
+                                                <td id="tbMail<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.mail" /></td>
+                                                <td id="tbTelefono<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.telefono" /></td>
+                                                <td id="tbDireccion<s:property value="#usuarioT.id" />"><s:property value="#usuarioT.direccion" /></td>                                                    
+                                                <td><button class="btn btn-primary" id="ModficarT" onclick="mostrarModalUsuario(<s:property value="#usuarioT.id" />)">Modificar</button></td>
+                                                <s:url var="terminarTrabajo" action="delUser">
+                                                    <s:param name="id"><s:property value="#usuarioT.id" /></s:param>
+                                                </s:url>
+                                                <td><a  href="${terminarTrabajo}"><button class="btn btn-danger">Eliminar</button></a></td>
                                             </tr>                                        
-                                    </s:iterator>
+                                        </s:iterator>
                                     </tbody>
                                 </table>
                             </div>
@@ -200,7 +209,7 @@
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal fade" id="myModal" role="dialog" onmousemove="modalValidacionTrabajo()">
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
@@ -215,21 +224,21 @@
                                 <div class="form-group">                                    
                                     <label for="fechaEntrega" class="col-lg-3">Fecha de Entrega:</label>
                                     <div class="col-lg-9">
-                                        <input type="date" class="form-control" id="fechaEntregaM" name="fechaEntrega">
+                                        <input type="date" class="form-control" id="fechaEntregaM" name="fechaEntrega" onkeypress="modalValidacionTrabajo()">
                                         <br/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="descripcion" class="col-lg-3">Descripción:</label>
                                     <div class="col-lg-9">
-                                        <input type="text" class="form-control" id="descripcionM" name="descripcion">
+                                        <input type="text" class="form-control" id="descripcionM" name="descripcion" onkeypress="modalValidacionTrabajo()">
                                         <br/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="pieza" class="col-lg-3">Pieza:</label>
                                     <div class="col-lg-9">
-                                        <input type="text" class="form-control" id="piezaM" name="pieza">
+                                        <input type="text" class="form-control" id="piezaM" name="pieza" onkeypress="modalValidacionTrabajo()">
                                         <br/>
                                     </div>
                                 </div>                           
@@ -247,7 +256,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button class="btn btn-sm btn-warning" type="submit">Confirmar</button>
+                                    <button class="btn btn-sm btn-warning" id="botnModalTrabajo" type="submit">Confirmar</button>
                                 </div>
                             </s:form>
                         </div>
@@ -258,7 +267,7 @@
 
                 </div>
             </div>
-            
+
             <!-- Modal Usuarios-->
             <div class="modal fade" id="myModalUsuario" role="dialog">
                 <div class="modal-dialog">
@@ -308,10 +317,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <input class="hidden" id="idUsuarioModU" name="idString">
+                                    <input class="hidden" id="idUsuarioModU" name="idString">
                                 </div>                                      
                                 <div class="modal-footer">
-                                    <button class="btn btn-sm btn-warning" type="submit">Confirmar</button>
+                                    <button class="btn btn-sm btn-warning" id="botonMoUsuario" type="submit">Confirmar</button>
                                 </div>
                             </s:form>
                         </div>
@@ -330,26 +339,29 @@
         </s:else>
     </div>
     <script>
+        var idusuario;
         function mostrarModal(a) {
+            $('#seleccionUsuarioId option').removeAttr("selected");
             $("#idTrabajoMod").val($("#tbIdTrabajo" + a)[0].innerHTML);
             $("#fechaEntregaM").val($("#tbFechaEntrega" + a)[0].innerHTML);
             $("#descripcionM").val($("#tbDescripcion" + a)[0].innerHTML);
-            $("#mailM").val($("#tbPieza" + a)[0].innerHTML);
-            var idusuario = $("#tbIdUsuario" + a).val();
+            $("#piezaM").val($("#tbPieza" + a)[0].innerHTML);
+            idusuario = $("#tbIdUsuario" + a).val();            
             $('#A' + idusuario).attr("selected", "selected");
             $("#idUsuarioMod").val(idusuario);
+            $("#botnModalTrabajo").addClass('active');
             $("#myModal").modal();
         }
         function mostrarModalUsuario(a) {
-            
+
             $("#nombreM").val($("#tbNombre" + a)[0].innerHTML);
             $("#apellidosM").val($("#tbApellidos" + a)[0].innerHTML);
             $("#mailM").val($("#tbMail" + a)[0].innerHTML);
             $("#telefonoM").val($("#tbTelefono" + a)[0].innerHTML);
-            $("#direccionM").val($("#tbDireccion" + a)[0].innerHTML);            
+            $("#direccionM").val($("#tbDireccion" + a)[0].innerHTML);
             $("#idUsuarioModU").val(a);
-            $("#myModalUsuario").modal();            
-            
+            $("#myModalUsuario").modal();
+
         }
         function cambioUsuario(id) {
 
@@ -358,8 +370,73 @@
             });
 
         }
+        
+        function cambioUsuarioTab(id) {
 
+            $('select[id=seleccionUsuarioIdT]').change(function () {
+                $("#idUsuarioTab").val($('select[id=seleccionUsuarioIdT]').val());
+            });
 
+        }
+        
+        function modalValidacionTrabajo () {
+            var varfechaEntregaM = $("#fechaEntregaM").val();
+            var vardescripcionM = $("#descripcionM").val();
+            var varpiezaM = $("#piezaM").val();
+            if(varfechaEntregaM != '' && vardescripcionM != '' && varpiezaM != ''){
+                $("#botnModalTrabajo").removeClass('disabled');
+                $("#botnModalTrabajo").addClass('active');
+            }else{
+                $("#botnModalTrabajo").removeClass('active');
+                $("#botnModalTrabajo").addClass('disabled');
+            }
+        }
+        
+        function modalValidacionUsuario () {
+            var varnombreM = $("#nombreM").val();
+            var varapellidosM = $("#apellidosM").val();
+            var varmailM = $("#mailM").val();
+            var vartelefonoM = $("#telefonoM").val();
+            var vardireccionM = $("#direccionM").val();
+            if(varnombreM != '' && varapellidosM != '' && varmailM != '' &&
+                    vartelefonoM != '' && vardireccionM != ''){
+                $("#botonMoUsuario").removeClass('disabled');
+                $("#botonMoUsuario").addClass('active');
+            }else{
+                $("#botonMoUsuario").removeClass('active');
+                $("#botonMoUsuario").addClass('disabled');
+            }
+        }
+
+        function fvalidacion() {
+            var varnombre = $("#nombre").val();
+            var varapellido = $("#apellidos").val();
+            var varmail = $("#mail").val();
+            var vartelefono = $("#telefono").val();
+            var vardireccion = $("#direccion").val();
+            if (varnombre != '' && varapellido != '' && varmail != '' &&
+                    vartelefono != '' && vardireccion != '') {
+                $("#botnUsuario").removeClass('disabled');
+                $("#botnUsuario").addClass('active');
+            } else {
+                $("#botnUsuario").removeClass('active');
+                $("#botnUsuario").addClass('disabled');
+            }
+        }
+        
+        function fvalidacionTab () {
+            var varfechaEntrega = $("#fechaEntrega").val();
+            var vardescripcion = $("#descripcion").val();
+            var varpieza = $("#pieza").val();
+            if(varfechaEntrega != '' && vardescripcion != '' && varpieza != ''){
+                $("#botonTab").removeClass('disabled');
+                $("#botonTab").addClass('active');
+            } else {
+                $("#botonTab").removeClass('active');
+                $("#botonTab").addClass('disabled');
+            }
+        }
+        
         function cambiar(s) {
             if ($('#' + s).attr('class') === 'fa fa-sort-desc') {
                 $('#' + s).removeClass('fa-sort-desc');

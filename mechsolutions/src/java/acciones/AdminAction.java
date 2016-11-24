@@ -37,7 +37,8 @@ public class AdminAction extends ActionSupport implements SessionAware {
 
     public String addJob() {
         trabajo = new TrabajoBean();
-
+        cliente = Integer.parseInt(clienteString);
+        System.out.println("cleitte " + cliente);
         trabajo.setFechaEntrega(fechaEntrega);
         trabajo.setDescripcion(descripcion);
         trabajo.setPieza(pieza);
@@ -50,6 +51,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
         fechaEntrega = "";
         descripcion = "";
         pieza = "";
+        clienteString = "";
         cliente = 0;
 
         lista = getLista();
@@ -285,6 +287,13 @@ public class AdminAction extends ActionSupport implements SessionAware {
         trabajo.setCliente(cliente);
 
         boolean booActualizacion = daoT.actualizarTrabajo(trabajo);
+        idString = "";
+        cliente = 0;
+        id = 0;
+        fechaEntrega = "";
+        descripcion = "";
+        pieza = "";
+
         if (booActualizacion) {
             return SUCCESS;
         } else {
@@ -345,19 +354,19 @@ public class AdminAction extends ActionSupport implements SessionAware {
         }
     }
 
-    public String delUsuario(){
-        
+    public String delUsuario() {
+
         persona = new PersonaBean();
         persona.setId(id);
-        
-        boolean bandera  = daoP.eliminarPersona(persona);
-        if(bandera){
+
+        boolean bandera = daoP.eliminarPersona(persona);
+        id = 0;
+        if (bandera) {
             return SUCCESS;
-        }else{
+        } else {
             return ERROR;
         }
-        
-        
+
     }
-    
+
 }
