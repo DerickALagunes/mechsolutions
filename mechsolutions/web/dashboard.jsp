@@ -65,7 +65,7 @@
                             <img src="<%=context%>/images/minecraft.png" width="100px" height="100px" 
                                  class="img-circle col-sm-2 col-xs-2" alt="">
                             <br/><br/>
-                            <h4 class="col-sm-2 col-xs-2">Minecraft </h4><h5 class="col-sm-8 col-xs-8">Servidor de minecraft en linea, versión 1.7.4, conectate para jugar con tus amigos.</h5>
+                            <h4 class="col-sm-2 col-xs-2">Minecraft </h4><h5 class="col-sm-8 col-xs-8">Servidor de minecraft en linea, versión 1.10.2, conectate para jugar con tus amigos.</h5>
                         </div>
                     </a>
                     <br/>

@@ -27,7 +27,7 @@ public class Server extends ActionSupport implements SessionAware {
     private final String iPlex = 
             "<h5>1.Ve a <a href='http://mechsolutions.sytes.net:32400/'>plex</a> y crea una cuenta<br/><br/>2.Regresa a <a href='http://mechsolutions.sytes.net:32400/'>plex</a> luego de confirmar tu cuenta e inicia sesión<br/><br/>3.Envia un correo a mech_solutions@outlook.com con tu nombre de usuario plex y espera a que el administrador te de acceso a las series y peliculas.</h5><br/>";
     private final String iMinecraft = 
-            "<h5>1.Abre tu launcher de minecraft<br/><br/>2.Selecciona jugar en la versión 1.7.4 del juego<br/><br/>3.Incia el juego y ve a multijugador<br/><br/>4.En add server ingresa: <b>mechsolutions.sytes.net:25565</b><br/><br/>5.Dale agregar y cuando aparesca en la lista de servidores selecciona y da doble click.</h5><br/>";
+            "<h5>1.Abre tu launcher de minecraft<br/><br/>2.Selecciona jugar en la versión 1.10.2 del juego<br/><br/>3.Incia el juego y ve a multijugador<br/><br/>4.En add server ingresa: <b>mechsolutions.sytes.net</b><br/><br/>5.Dale agregar y cuando aparesca en la lista de servidores selecciona y da doble click.</h5><br/>";
     private final String iCod = 
             "<h5>1.Abre el juego de Call of Duty 4 (Cod4) en modo en linea<br/><br/>  </h5>";
     private final String iDraw = 
@@ -61,28 +61,28 @@ public class Server extends ActionSupport implements SessionAware {
                 setLink("#instruc");
                 break;
             case "cod":
-                setEstado(check.checkServers("9999"));
+                setEstado(check.checkServers("25569"));
                 setDesc(cod);
                 setInstruciones(iCod);
                 setLink("#instruc");
                 break;
             case "draw":
-                setEstado(check.checkServers("9999"));
+                setEstado(check.checkServers("9997"));
                 setDesc(draw);
                 setInstruciones(iDraw);
-                setLink("http://mechsolutions.sytes.net/");
+                setLink("http://mechsolutions.sytes.net:9997/");
                 break;
             case "git":
-                setEstado(check.checkServers("9999"));
+                setEstado(check.checkServers("9998"));
                 setDesc(git);
                 setInstruciones(iGit);
-                setLink("http://mechsolutions.sytes.net:9999/");
+                setLink("http://mechsolutions.sytes.net:9998/");
                 break;
             case "lufi":
                 setEstado(check.checkServers("9999"));
                 setDesc(lufi);
                 setInstruciones(iLufi);
-                setLink("http://mechsolutions.sytes.net/");
+                setLink("http://mechsolutions.sytes.net:9999/");
                 break;
         }
         return "success";

@@ -26,7 +26,7 @@
                         </div>
                         <div id="job" class="collapse" onmousemove="fvalidacionTab()">
                             <div class="well">
-                                <s:form name="addJob" action="addJob" id="addJob" method="POST">
+                                <s:form name="addJob" action="addJob" id="addJob" method="POST" accept-charset="UTF-8">
                                     <div class="form-group">
                                         <label for="fechaEntrega" class="col-lg-3">Fecha de Entrega:</label>
                                         <div class="col-lg-9">
@@ -74,37 +74,37 @@
                         </div>
                         <div id="user" class="collapse " onmousemove="fvalidacion()">
                             <div class="well">
-                                <s:form name="addUser" action="addUser" id="addUser" method="POST" class="form-horizontal">
+                                <s:form name="addUser" action="addUser" id="addUser" method="POST" class="form-horizontal" accept-charset="UTF-8">
                                     <div class="form-group">
-                                        <label for="imputnombre" class="col-lg-3">Name:</label>
+                                        <label for="imputnombre" class="col-lg-3">Nombre:</label>
                                         <div class="col-lg-9">
                                             <input type="text" class="form-control" id="nombre" name="nombre" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>
                                     </div>                                
                                     <div class="form-group">
-                                        <label for="imputapellidos:" class="col-lg-3">Surnames:</label>
+                                        <label for="imputapellidos:" class="col-lg-3">Apellidos:</label>
                                         <div class="col-lg-9">
                                             <input type="text" class="form-control" id="apellidos" name="apellidos" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div>
                                     <div class="form-group">                                        
-                                        <label for="imputmail" class="col-lg-3" >Mail:</label>                                    
+                                        <label for="imputmail" class="col-lg-3" >Email:</label>                                    
                                         <div class="col-lg-9">
                                             <input type="email" class="form-control" id="mail" name="mail" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div>
                                     <div class="form-group">
-                                        <label for="telefono" class="col-lg-3">Phone:</label>
+                                        <label for="telefono" class="col-lg-3">Teléfono:</label>
                                         <div class="col-lg-9">
                                             <input type="text" class="form-control" id="telefono" name="telefono" onkeyup="fvalidacion()">
                                             <br/>
                                         </div>                                    
                                     </div>
                                     <div class="form-group">
-                                        <label for="impiutdireccion" class="col-lg-3">Direccion:</label>
+                                        <label for="impiutdireccion" class="col-lg-3">Dirección:</label>
                                         <div class="col-lg-9">
                                             <input type="text" class="form-control" id="direccion" name="direccion" onkeyup="fvalidacion()">
                                             <br/>
@@ -173,9 +173,9 @@
                                             <th>#</th>
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
-                                            <th>Mail</th>
-                                            <th>Telefono</th>
-                                            <th>Direccion</th>
+                                            <th>Email</th>
+                                            <th>Teléfono</th>
+                                            <th>Dirección</th>
                                             <th>Modificar</th>
                                             <th>Elminar</th>
                                         </tr>
@@ -220,7 +220,7 @@
                         </div>
                         <br/>
                         <div class="modal-body">
-                            <s:form name="modjob" action="modJob" id="modjob" method="POST">
+                            <s:form name="modjob" action="modJob" id="modjob" method="POST" accept-charset="UTF-8">
                                 <div class="form-group">                                    
                                     <label for="fechaEntrega" class="col-lg-3">Fecha de Entrega:</label>
                                     <div class="col-lg-9">
@@ -280,7 +280,7 @@
                         </div>
                         <br/>
                         <div class="modal-body">
-                            <s:form name="moduse" action="moduse" id="moduse" method="POST">
+                            <s:form name="moduse" action="moduse" id="moduse" method="POST" accept-charset="UTF-8">
                                 <div class="form-group">                                    
                                     <label for="nombreUsuario" class="col-lg-3">Nombre:</label>
                                     <div class="col-lg-9">

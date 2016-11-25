@@ -45,7 +45,7 @@ public class conexionMySQLServer {
             System.out.println("error \n");
             e.printStackTrace();
         }
-        String url = "jdbc:mysql://" + ipAddress + "/" + dbName;
+        String url = "jdbc:mysql://" + ipAddress + "/" + dbName + "?useUnicode=yes&characterEncoding=UTF-8";
         return DriverManager.getConnection(url, user, password);
     }
 
